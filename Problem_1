@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define sortall(v) sort(all(v))   //increasing order
+#define sortallrev(v) sort(all_rev(v)) // reverse order
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+  
+    string a; cin>>a;
+    ll b; cin>>b;
+    string c;
+    sortall(a);
+    ll n=a.size();
+    ll m = floor(log10(abs(b))) + 1;
+    //ll m=b.size();
+    string temp=a;
+    sortallrev(temp);
+    if(n!=m){
+    cout<<temp;
+    }
+    else{
+    for(ll i=0;i<n;i++){
+        for(ll j=i+1;j<n;j++){
+            c=a;
+            //swaping adjacent digits...
+            swap(c[i],c[j]);
+            if(stoll(c)>stoll(a) && stoll(c)<=b)
+            swap(a[i],a[j]);
+        }
+    }
+    cout<<a;
+    }
+    
+    
+}
