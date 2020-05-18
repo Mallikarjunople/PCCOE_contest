@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    ll t; 
+    t=1;
+    cin>> t;
+    while(t--){
+     string s; cin>>s;
+     ll n=s.size();
+     ll mx=0;
+     if(n==1){
+         cout<<n<<"\n";
+         continue;
+     }
+     string temp;
+        for(ll i=1;i<n;i++){
+            ll max_len=0;
+            temp=s.substr(i,n);
+          
+            ll m=temp.size();
+            for(ll j=0;j<m;j++){
+                if(s[j]==temp[j]) max_len++;
+                else break;
+             }
+            mx+=max_len;
+        }
+        cout<<mx+n<<"\n";
+    }
+    
+    
+}
